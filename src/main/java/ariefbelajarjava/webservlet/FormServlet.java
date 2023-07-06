@@ -19,4 +19,13 @@ public class FormServlet extends HttpServlet {
         String html = Files.readString(path);
         resp.getWriter().println(html);
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String firstName = req.getParameter("firstName");
+        String lastName = req.getParameter("lastName");
+        String fullName = firstName + " " + lastName;
+        String response = "Hello " + fullName;
+        resp.getWriter().println(response);
+    }
 }
