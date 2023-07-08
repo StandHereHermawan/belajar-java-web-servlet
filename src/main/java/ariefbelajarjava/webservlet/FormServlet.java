@@ -8,8 +8,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.Scanner;
 
 @WebServlet(urlPatterns = "/form")
@@ -17,18 +15,16 @@ public class FormServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // path repository root, jalan di intelliJ IDEA, tapi gak jalan di apache tomcat
-        Path path = Path.of("src/main/resources/html/form.html");
-
-        try (InputStream inputStream = Files.newInputStream(path);
+        // Windows Version
+        try (InputStream inputStream = getClass().getResourceAsStream("/html/form.html");
              Scanner scanner = new Scanner(inputStream)) {
 
-            while (scanner.hasNextLine()){
-                String line = scanner.nextLine();
-                resp.getWriter().println(line);
+            while (scanner.hasNextLine()) {
+                String html = scanner.nextLine();
+                resp.getWriter().println(html);
             }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
         }
     }
 
