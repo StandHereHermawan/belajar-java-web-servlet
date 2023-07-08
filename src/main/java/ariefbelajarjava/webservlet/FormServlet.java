@@ -17,6 +17,7 @@ public class FormServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // path repository root, jalan di intelliJ IDEA, tapi gak jalan di apache tomcat
         Path path = Path.of("src/main/resources/html/form.html");
 
         try (InputStream inputStream = Files.newInputStream(path);
