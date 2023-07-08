@@ -24,15 +24,11 @@ public class FormServlet extends HttpServlet {
 
             while (scanner.hasNextLine()){
                 String line = scanner.nextLine();
-                // System.out.println(line);
                 resp.getWriter().println(line);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-        // Path path = Path.of("form.html");
-        // String html = Files.readString(path);
     }
 
     @Override

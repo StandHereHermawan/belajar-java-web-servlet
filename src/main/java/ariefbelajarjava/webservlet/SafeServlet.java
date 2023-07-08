@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/unsafe")
+@WebServlet(urlPatterns = "/safe")
 public class SafeServlet extends HttpServlet {
 
     // tidak sharing variable response, kemungkinan penyebab race condition
