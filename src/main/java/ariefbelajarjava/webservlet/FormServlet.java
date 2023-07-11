@@ -16,7 +16,7 @@ public class FormServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // Windows Version
-        try (InputStream inputStream = getClass().getResourceAsStream("/html/form.html");
+        try (InputStream inputStream = FormServlet.class.getResourceAsStream("/html/form.html");
              Scanner scanner = new Scanner(inputStream)) {
 
             while (scanner.hasNextLine()) {
