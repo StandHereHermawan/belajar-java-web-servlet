@@ -23,4 +23,13 @@ public class CookieServlet extends HttpServlet {
         resp.addCookie(cookie);
         resp.getWriter().println("Success add cookie " + cookieName + ":" + cookieValue);
     }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if (req.getCookies() != null) {
+            for (Cookie cookie : req.getCookies()) {
+                resp.getWriter().println("Cookie " + cookie.getName() + ":" + cookie.getValue());
+            }
+        }
+    }
 }
